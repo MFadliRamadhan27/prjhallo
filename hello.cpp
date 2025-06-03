@@ -3,19 +3,29 @@
 using namespace std;
 
 int main() {
-    string nama[5];
+    int jumlah;
 
-    nama[0] = "Fadli";
-    nama[1] = "Anshari";
-    nama[2] = "Pepen";
-    nama[3] = "Rayhan";
-    nama[4] = "Ijan";
+    // Meminta user memasukkan jumlah nama
+    cout << "Masukkan jumlah nama yang akan diproses: ";
+    cin >> jumlah;
 
-    // Menampilkan data nama
-    cout << "Daftar Nama:" << endl;
-    for (int i = 0; i < 5; i++) {
+    // Inisialisasi array dinamis
+    string* nama = new string[jumlah];
+
+    // Input nama-nama
+    for (int i = 0; i < jumlah; i++) {
+        cout << "Masukkan nama ke-" << i + 1 << ": ";
+        cin >> nama[i];
+    }
+
+    // Menampilkan nama-nama
+    cout << "\nDaftar Nama:" << endl;
+    for (int i = 0; i < jumlah; i++) {
         cout << i + 1 << ". " << nama[i] << endl;
     }
+
+    // Menghapus alokasi memori dinamis
+    delete[] nama;
 
     return 0;
 }
